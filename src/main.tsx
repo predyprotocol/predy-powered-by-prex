@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
-import { PrexUIKitSimpleProvider } from '@prex0/uikit';
+import { PrexUIKitSimpleProvider, usePrex } from '@prex0/uikit';
 import { CHAIN_ID, USDC_TOKEN, WETH_TOKEN } from './constants.ts';
 import '@prex0/uikit/styles.css';
 import './index.css'
@@ -68,28 +68,34 @@ root.render(
 
 
 function PrexProviderWithConnector({ children }: { children: ReactNode }) {
+  return (
+    <PrexUIKitSimpleProvider
+      chainId={CHAIN_ID}
+      policyId={import.meta.env.VITE_POLICY_ID}
+      apiKey={import.meta.env.VITE_API_KEY}
+      tokens={[USDC_TOKEN, WETH_TOKEN]}
+      useExternalWallet={true}
+    >
+      <InternalPrexProvider> 
+        {children}
+      </InternalPrexProvider>
+    </PrexUIKitSimpleProvider>
+  );
+}
+
+function InternalPrexProvider({ children }: { children: ReactNode }) {
   const client = useConnectorClient();
+  const {setProvider} = usePrex();
+ 
+  useEffect(() => {
+    if(client.data) {
+      setProvider(client.data as any);
+    }
+  }, [client.data, setProvider])
 
-  if (client.data) {
-    return (
-      <PrexUIKitSimpleProvider
-        chainId={CHAIN_ID}
-        policyId={import.meta.env.VITE_POLICY_ID}
-        apiKey={import.meta.env.VITE_API_KEY}
-        debugMode={true}
-        tokens={[USDC_TOKEN, WETH_TOKEN]}
-        provider={client.data as any}
-        useExternalWallet={true}
-      >
-        {children}
-      </PrexUIKitSimpleProvider>
-    );
-  } else {
-    return (
-      <>
-        {children}
-        </>
-    );
-  }
-
+  return (
+    <>
+      {children}
+    </>
+  );
 }

@@ -18,7 +18,7 @@ export const DEMO_TOKEN: Token = {
   decimals: 18,
   precision: 2,
   image:
-    'https://d3r81g40ycuhqg.cloudfront.net/wallet/wais/44/2b/442b80bd16af0c0d9b22e03a16753823fe826e5bfd457292b55fa0ba8c1ba213-ZWUzYjJmZGUtMDYxNy00NDcyLTg0NjQtMWI4OGEwYjBiODE2',
+    'https://app.predy.finance/icons/usdc.svg',
   chainId: CHAIN_ID,
 };
 
@@ -29,7 +29,7 @@ export const USDC_TOKEN: Token = MODE === 'dev' ? DEMO_TOKEN : {
   decimals: 6,
   precision: 2,
   image:
-    'https://d3r81g40ycuhqg.cloudfront.net/wallet/wais/44/2b/442b80bd16af0c0d9b22e03a16753823fe826e5bfd457292b55fa0ba8c1ba213-ZWUzYjJmZGUtMDYxNy00NDcyLTg0NjQtMWI4OGEwYjBiODE2',
+  'https://app.predy.finance/icons/usdc.svg',
   chainId: CHAIN_ID,
 };
 
@@ -40,7 +40,7 @@ export const WETH_TOKEN: Token = {
   decimals: 18,
   precision: 12,
   image:
-    'https://d3r81g40ycuhqg.cloudfront.net/wallet/wais/47/bc/47bc3593c2dec7c846b66b7ba5f6fa6bd69ec34f8ebb931f2a43072e5aaac7a8-YmUwNmRjZDUtMjczYy00NDFiLWJhZDUtMzgwNjFmYWM0Njkx',
+  'https://app.predy.finance/icons/eth.svg',
   chainId: CHAIN_ID
 };
 
