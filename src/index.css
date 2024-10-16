@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  height: 100%;
+}
+
+@layer base {
+  :root {
+    --text-prex-inverse: theme(colors.gray.100);
+    --text-prex-foreground: theme(colors.gray.200);
+    --text-prex-foreground-muted: theme(colors.gray.200);
+    --text-prex-error: theme(colors.rose.600);
+    --text-prex-primary: theme(colors.gray.200);
+    --text-prex-success: theme(colors.lime.600);
+    --text-prex-warning: theme(colors.orange.600);
+    --text-prex-disabled: theme(colors.gray.400);
+    --bg-prex-default: #0a0b0d;
+    --bg-prex-default-hover: theme(colors.black/30);
+    --bg-prex-default-active: theme(colors.gray.700);
+    --bg-prex-alternate: theme(colors.black/30);
+    --bg-prex-alternate-hover: theme(colors.black/50);
+    --bg-prex-alternate-active: theme(colors.gray.900);
+    --bg-prex-inverse: theme(colors.gray.900);
+    --bg-prex-inverse-hover: theme(colors.gray.800);
+    --bg-prex-inverse-active: theme(colors.gray.700);
+    --bg-prex-primary: theme(colors.indigo.600);
+    --bg-prex-primary-hover: theme(colors.indigo.700);
+    --bg-prex-primary-active: theme(colors.indigo.800);
+    --bg-prex-secondary: theme(colors.slate.200);
+    --bg-prex-secondary-hover: theme(colors.slate.300);
+    --bg-prex-secondary-active: theme(colors.slate.400);
+    --bg-prex-error: theme(colors.rose.600);
+    --bg-prex-warning: theme(colors.orange.600);
+    --bg-prex-success: theme(colors.lime.300);
+    --bg-prex-default-reverse: theme(colors.gray.950);
+    --destructive-foreground: 210 20% 98%;
+
+    --border-prex-default: theme(colors.gray.800);
+    --radius: 0.5rem;
+
+    --bg-prex-default-reverse: theme(colors.gray.100);
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 216 12.2% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+}
