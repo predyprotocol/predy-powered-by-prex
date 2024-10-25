@@ -3,15 +3,10 @@ import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
 import { ArrowDown, Info, Zap } from "lucide-react"
 import { USDC_TOKEN, WETH_TOKEN } from "../constants";
-
-
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-
 
 export function SwapPage() {
   return <div className="min-h-screen bg-prex-default text-gray-300 flex flex-col">
@@ -37,7 +32,9 @@ export function SwapPage() {
                     hideName
                   />
                 </div>
-                <SwapBalance type="from" className="text-gray-400 text-sm"/>
+                <div>
+                  <SwapBalance type="from" className="text-gray-400 text-sm"/>
+                </div>
               </div>
               <div className="flex justify-center items-center space-x-2">
                 <SwapToggleButton className="h-6 w-6">
@@ -75,7 +72,9 @@ export function SwapPage() {
                   />
 
                 </div>
-                <SwapBalance type="to" className="text-gray-400 text-sm"/>
+                <div>
+                  <SwapBalance type="to" className="text-gray-400 text-sm"/>
+                </div>
               </div>
             </div>
           </CardContent>
@@ -86,8 +85,6 @@ export function SwapPage() {
         </Card>
         </Swap>
       </main>
-
-
       <Footer />
   </div>
 }
