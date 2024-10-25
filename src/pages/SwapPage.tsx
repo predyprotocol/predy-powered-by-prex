@@ -8,7 +8,7 @@ export function SwapPage() {
   return <div className="min-h-screen bg-prex-default text-gray-300 flex flex-col">
       <Header />
       <main className="flex-grow flex flex-col items-center justify-center px-4 space-y-2">
-        <Swap className="w-full space-y-2 max-w-md bg-black/50 backdrop-blur-md shadow-2xl border-gray-800 border-[0.5px]">
+        <Swap className="w-full space-y-2 max-w-md bg-black/50 backdrop-blur-md shadow-2xl border-gray-800 border-[0.5px] rounded-md">
           <div className="text-center">
             <p className="text-sm text-gray-500">Efficient. Streamlined. Redefined.</p>
           </div>
@@ -19,8 +19,14 @@ export function SwapPage() {
               </div>
 
               <div className="h-10 flex items-center space-x-2">
-                <SwapAmountSimpleInput type="from" amount="0" className="h-10 bg-black/30 border-gray-800/50 text-gray-300"/>
-                <SwapTokenSelector type="from" token={USDC_TOKEN} className="h-10 bg-black/30 border-gray-800/50 border-[1px] text-gray-300 cursor-pointer hover:bg-black/50"/>
+                <SwapAmountSimpleInput type="from" amount="0" className="h-10 bg-black/30 border-gray-800/50 text-gray-300 rounded-md"/>
+                <SwapTokenSelector
+                  className="h-10 bg-black/30 border-gray-800/50 border-[1px] text-gray-300 cursor-pointer hover:bg-black/50 rounded-md font-medium text-sm"
+                  type="from"
+                  token={USDC_TOKEN}
+                  imageSize={24}
+                  hideName
+                />
               </div>
 
               <div>
@@ -47,8 +53,14 @@ export function SwapPage() {
               </div>
 
               <div className="flex space-x-2">
-                <SwapAmountSimpleInput type="to" amount="0" className="bg-black/30 border-gray-800/50 text-gray-300"/>
-                <SwapTokenSelector type="to" token={WETH_TOKEN} className="h-10 bg-black/30 border-gray-800/50 border-[1px] text-gray-300 cursor-pointer hover:bg-black/50"/>
+                <SwapAmountSimpleInput type="to" amount="0" className="bg-black/30 border-gray-800/50 text-gray-300 rounded-md"/>
+                <SwapTokenSelector
+                  className="h-10 bg-black/30 border-gray-800/50 border-[1px] text-gray-300 cursor-pointer hover:bg-black/50 rounded-md font-medium text-sm"
+                  type="to"
+                  token={WETH_TOKEN}
+                  imageSize={24}
+                  hideName
+                />
               </div>
 
               <div>
@@ -59,9 +71,8 @@ export function SwapPage() {
           </div>
           <div>
             <SwapMessage className="text-xs text-gray-500"/>
-            <SwapButton className="w-full bg-white/5 hover:bg-white/10 border border-gray-700"/>
+            <SwapButton className="w-full bg-white/5 hover:bg-white/10 border border-gray-700 rounded-md"/>
           </div>
-
         </Swap>
       </main>
 

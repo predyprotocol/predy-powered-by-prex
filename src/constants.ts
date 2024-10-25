@@ -1,4 +1,5 @@
 import { Token } from "@prex0/prex-client"
+import { Address } from "viem"
 
 const MODE = import.meta.env.MODE
 
@@ -23,7 +24,7 @@ export const DEMO_TOKEN: Token = {
 };
 
 export const USDC_TOKEN: Token = MODE === 'dev' ? DEMO_TOKEN : {
-  name: 'USDC',
+  name: 'USDCoin',
   address: '0xaf88d065e77c8cC2239327C5EDb3A432268e5831',
   symbol: 'USDC',
   decimals: 6,
@@ -44,3 +45,22 @@ export const WETH_TOKEN: Token = {
   chainId: CHAIN_ID
 };
 
+export const WSTETH_TOKEN_ARBITRUM = {
+  name: 'Wrapped Lido Staked Ether',
+  address: '0x5979D7b546E38E414F7E9822514be443A4800529' as Address,
+  symbol: 'wstETH',
+  decimals: 18,
+  precision: 12,
+  image: 'https://coin-images.coingecko.com/coins/images/18834/large/wstETH.png',
+  chainId: CHAIN_ID
+};
+
+export const USDT_TOKEN_ARBITRUM = {
+  name: 'USDT',
+  address: '0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9' as Address,
+  symbol: 'USDT',
+  decimals: 6,
+  precision: 2,
+  image: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/arbitrum/assets/0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9/logo.png',
+  chainId: CHAIN_ID
+};

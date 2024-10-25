@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import { PrexUIKitSimpleProvider, usePrex } from '@prex0/uikit';
-import { CHAIN_ID, USDC_TOKEN, WETH_TOKEN } from './constants.ts';
+import { CHAIN_ID, USDC_TOKEN, USDT_TOKEN_ARBITRUM, WETH_TOKEN, WSTETH_TOKEN_ARBITRUM } from './constants.ts';
 import '@prex0/uikit/styles.css';
 import './index.css'
 import '@rainbow-me/rainbowkit/styles.css'; // [!code focus]
@@ -73,7 +73,7 @@ function PrexProviderWithConnector({ children }: { children: ReactNode }) {
       chainId={CHAIN_ID}
       policyId={import.meta.env.VITE_POLICY_ID}
       apiKey={import.meta.env.VITE_API_KEY}
-      tokens={[USDC_TOKEN, WETH_TOKEN]}
+      tokens={[USDC_TOKEN, WETH_TOKEN, WSTETH_TOKEN_ARBITRUM, USDT_TOKEN_ARBITRUM]}
       useExternalWallet={true}
     >
       <InternalPrexProvider> 
