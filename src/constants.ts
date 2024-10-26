@@ -64,3 +64,5 @@ export const USDT_TOKEN_ARBITRUM = {
   image: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/arbitrum/assets/0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9/logo.png',
   chainId: CHAIN_ID
 };
+
+export const DEFAULT_TOKEN_LIST = [WETH_TOKEN, USDC_TOKEN, WSTETH_TOKEN_ARBITRUM]
