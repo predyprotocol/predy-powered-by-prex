@@ -1,15 +1,14 @@
-import { Swap, SwapToggleButton, SwapButton, SwapMessage, SwapAmountSimpleInput, SwapBalance, useSwapContext } from "@prex0/uikit/swap"
+import { Swap, SwapToggleButton, SwapButton, SwapMessage, SwapAmountSimpleInput, SwapBalance, SwapTokenSelector } from "@prex0/uikit/swap"
 import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
 import { ArrowDown, Info, Zap } from "lucide-react"
-import { DEFAULT_TOKEN_LIST, USDC_TOKEN, WETH_TOKEN } from "../constants";
+import { USDC_TOKEN, WETH_TOKEN } from "../constants";
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Token } from "@prex0/prex-client"
-import { useCallback, useEffect, useMemo } from "react"
 
 export function SwapPage() {
   return <div className="min-h-screen bg-prex-default text-gray-300 flex flex-col">
@@ -27,10 +26,12 @@ export function SwapPage() {
                 <Label htmlFor="from-amount" className="text-gray-400">You pay</Label>
                 <div className="flex space-x-2">
                   <SwapAmountSimpleInput type="from" amount="0" className="h-10 bg-black/30 border border-gray-800/50 text-gray-300 rounded-md"/>
-                  <TokenSelector
+                  <SwapTokenSelector
                     type="from"
                     token={USDC_TOKEN}
-                  />
+                  >
+                    <TokenSelector />
+                  </SwapTokenSelector>
                 </div>
                 <div>
                   <SwapBalance type="from" className="text-gray-400 text-sm"/>
@@ -63,10 +64,12 @@ export function SwapPage() {
                 <Label htmlFor="to-amount" className="text-gray-400">You receive</Label>
                 <div className="flex space-x-2">
                   <SwapAmountSimpleInput type="to" amount="0" className="bg-black/30 border border-gray-800/50 text-gray-300 rounded-md"/>
-                  <TokenSelector
+                  <SwapTokenSelector
                     type="to"
                     token={WETH_TOKEN}
-                  />
+                  >
+                    <TokenSelector />
+                  </SwapTokenSelector>
                 </div>
                 <div>
                   <SwapBalance type="to" className="text-gray-400 text-sm"/>
@@ -87,51 +90,24 @@ export function SwapPage() {
 
 function TokenSelector({
   token,
-  type,
+  setToken,
+  options
 }: {
   token?: Token;
-  type: 'from' | 'to';
+  setToken?: (token: Token) => void;
+  options?: Token[];
 }) {
-  const { to, from, handleAmountChange } = useSwapContext();
-
-  const source = (type === 'from' ? from : to);
-  const destination = (type === 'from' ? to : from);
-
-  useEffect(() => {
-    if (token) {
-      source.setToken(token);
-    }
-  }, [token, source.setToken]);
-
-  const handleSetToken = useCallback(
-    (symbol: string) => {
-      const token = sourceTokenOptions.find((t) => t.symbol === symbol);
-      if (token) {
-        source.setToken(token);
-        handleAmountChange(type, source.amount, token);
-      }
-    },
-    [source.amount, source.setToken, handleAmountChange, type],
-  );
-
-  // if tokenList is not provided, use default token list
-  const sourceTokenOptions = useMemo(() => {
-    const tokens = DEFAULT_TOKEN_LIST;
-
-    return (
-      tokens?.filter(
-        ({ symbol }: Token) => symbol !== destination.token?.symbol,
-      ) ?? []
-    );
-  }, [destination.token]);
+  if (!options || !setToken || !token) {
+    return null;
+  }
 
   return (
-    <Select value={source.token?.symbol} onValueChange={handleSetToken}>
+    <Select value={token.symbol} onValueChange={(value) => setToken(options.find((t) => t.symbol === value)!)}>
       <SelectTrigger className="w-[120px] bg-black/30 border-gray-800/50 text-gray-300">
         <SelectValue placeholder="Select token" />
       </SelectTrigger>
       <SelectContent className="bg-gray-800 border border-gray-700 flex flex-col">
-        {sourceTokenOptions.map((token) => (
+        {options.map((token) => (
           <SelectItem value={token.symbol} className="text-gray-200 hover:bg-gray-700 focus:bg-gray-700 focus:text-white">{token.symbol}</SelectItem>
         ))}
       </SelectContent>
