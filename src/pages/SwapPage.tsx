@@ -15,7 +15,6 @@ export function SwapPage() {
       <Header />
       <main className="flex-grow flex flex-col items-center justify-center px-4">
         <Swap>
-
         <Card className="w-full max-w-md bg-black/50 backdrop-blur-md shadow-2xl border-gray-800/50">
           <CardContent className="space-y-4 pt-6">
             <div className="text-center">
@@ -25,7 +24,7 @@ export function SwapPage() {
               <div className="space-y-2">
                 <Label htmlFor="from-amount" className="text-gray-400">You pay</Label>
                 <div className="flex space-x-2">
-                  <SwapAmountSimpleInput type="from" amount="0" className="h-10 bg-black/30 border border-gray-800/50 text-gray-300 rounded-md"/>
+                  <SwapAmountSimpleInput type="from" amount="0" className="h-10 bg-black/30 text-gray-300 rounded-md"/>
                   <SwapTokenSelector
                     type="from"
                     token={USDC_TOKEN}
@@ -38,7 +37,7 @@ export function SwapPage() {
                 </div>
               </div>
               <div className="flex justify-center items-center space-x-2">
-                <SwapToggleButton className="h-6 w-6">
+                  <SwapToggleButton className="h-6 w-6">
                   <Button variant="ghost" size="icon" className="rounded-full bg-black/30 hover:bg-black/50">
                     <ArrowDown className="h-4 w-4 text-gray-500" />
                     <span className="sr-only">Switch tokens</span>
@@ -63,7 +62,7 @@ export function SwapPage() {
               <div className="space-y-2">
                 <Label htmlFor="to-amount" className="text-gray-400">You receive</Label>
                 <div className="flex space-x-2">
-                  <SwapAmountSimpleInput type="to" amount="0" className="bg-black/30 border border-gray-800/50 text-gray-300 rounded-md"/>
+                  <SwapAmountSimpleInput type="to" amount="0" className="bg-black/30 text-gray-300 rounded-md"/>
                   <SwapTokenSelector
                     type="to"
                     token={WETH_TOKEN}
@@ -79,7 +78,9 @@ export function SwapPage() {
           </CardContent>
           <CardFooter className="flex flex-col pt-6">
             <SwapMessage className="text-xs text-gray-500"/>
-            <SwapButton className="w-full bg-white/5 hover:bg-white/10 border border-gray-700 rounded-md"/>
+            <SwapButton className="w-full bg-white/5 hover:bg-white/10 border border-gray-700 text-gray-300 rounded-md">
+              Swap
+            </SwapButton>
           </CardFooter>
         </Card>
         </Swap>

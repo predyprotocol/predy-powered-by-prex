@@ -2,100 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-  height: 100%;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
 
 @layer base {
-  html {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-    font-optical-sizing: auto;
-    line-height: 20px;
-    height: 100%;
-  }
-
   :root {
-    --text-prex-inverse: theme(colors.gray.100);
-    --text-prex-foreground: theme(colors.gray.200);
-    --text-prex-foreground-muted: theme(colors.gray.200);
-    --text-prex-error: theme(colors.rose.600);
-    --text-prex-primary: theme(colors.gray.200);
-    --text-prex-success: theme(colors.lime.600);
-    --text-prex-warning: theme(colors.orange.600);
-    --text-prex-disabled: theme(colors.gray.400);
-    --bg-prex-default: #0a0b0d;
-    --bg-prex-default-hover: theme(colors.black/30);
-    --bg-prex-default-active: theme(colors.gray.700);
-    --bg-prex-alternate: theme(colors.black/30);
-    --bg-prex-alternate-hover: theme(colors.black/50);
-    --bg-prex-alternate-active: theme(colors.gray.900);
-    --bg-prex-inverse: theme(colors.gray.900);
-    --bg-prex-inverse-hover: theme(colors.gray.800);
-    --bg-prex-inverse-active: theme(colors.gray.700);
-    --bg-prex-primary: theme(colors.indigo.600);
-    --bg-prex-primary-hover: theme(colors.indigo.700);
-    --bg-prex-primary-active: theme(colors.indigo.800);
-    --bg-prex-secondary: theme(colors.slate.200);
-    --bg-prex-secondary-hover: theme(colors.slate.300);
-    --bg-prex-secondary-active: theme(colors.slate.400);
-    --bg-prex-error: theme(colors.rose.600);
-    --bg-prex-warning: theme(colors.orange.600);
-    --bg-prex-success: theme(colors.lime.300);
-    --bg-prex-default-reverse: theme(colors.gray.950);
-    --destructive-foreground: 0 0% 98%;
-
-    --border-prex-default: theme(colors.gray.800);
-    --radius: 0.5rem;
-
-    --bg-prex-default-reverse: theme(colors.gray.100);
-
     --background: 0 0% 100%;
-
     --foreground: 0 0% 3.9%;
-
     --card: 0 0% 100%;
-
     --card-foreground: 0 0% 3.9%;
-
     --popover: 0 0% 100%;
-
     --popover-foreground: 0 0% 3.9%;
-
     --primary: 0 0% 9%;
-
     --primary-foreground: 0 0% 98%;
-
     --secondary: 0 0% 96.1%;
-
     --secondary-foreground: 0 0% 9%;
-
     --muted: 0 0% 96.1%;
-
     --muted-foreground: 0 0% 45.1%;
-
     --accent: 0 0% 96.1%;
-
     --accent-foreground: 0 0% 9%;
-
     --destructive: 0 84.2% 60.2%;
-
+    --destructive-foreground: 0 0% 98%;
     --border: 0 0% 89.8%;
-
     --input: 0 0% 89.8%;
-
     --ring: 0 0% 3.9%;
-
     --chart-1: 12 76% 61%;
-
     --chart-2: 173 58% 39%;
-
     --chart-3: 197 37% 24%;
-
     --chart-4: 43 74% 66%;
-
     --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
   }
-
+  
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -122,7 +67,6 @@ html, body {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-
 }
 
 @layer base {
